@@ -1,0 +1,33 @@
+@import url(./game/gameViewController.css);
+@import url(./menu/menuViewController.css);
+@import url(./scores/scoresViewController.css);
+
+.mainContainer{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: aquamarine;
+}
+
+.navigationBar{
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contentContainer{
+  background-color: var(--background-color);
+  width: 100%;
+  height: calc(100% - 60px);
+}
+
+.viewController_titleLbl{
+  width: 30px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: calc(50% - 75px);
+}

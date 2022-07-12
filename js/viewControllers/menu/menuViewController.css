@@ -1,0 +1,28 @@
+.menuViewController{
+  
+}
+.menuViewController_textH1{
+  
+}
+.menuViewController_textH2{
+  margin-bottom: 5px;
+}
+.menuViewController_userNameIn{
+  margin-bottom: 1rem;
+  width: 185px;
+  line-height: 2.5;
+  border: none;
+  border-radius: 5px;
+  padding-left: 15px;
+}
+.menuViewController_playBtn, .menuViewController_scoresBtn{
+  width: 200px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.menuViewControllerr_contentContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

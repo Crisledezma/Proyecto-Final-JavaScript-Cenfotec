@@ -1,0 +1,25 @@
+@import url(./variables.css);
+@import url(../js/viewControllers/viewController.css);
+
+html{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.appContainer{
+  width: 100vw;
+  height: 100vh;
+  background-color: bisque;
+}
+
+button{
+  min-width: 60px;
+  border-style: none;
+  padding: 10px;
+  margin: 5px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--primary-color);
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
