@@ -1,9 +1,12 @@
-export class ViewController {
-  constructor(appManager, parent, titleLbl = ''){
+import { View } from "../views/view.js";
+
+export class ViewController extends View {
+  constructor(appManager, parent, titleLbl = '') {
+    
+    super(parent);
     
     this.appManager = appManager;
-    this.parent = parent;
-    this.mainContainer = document.createElement('div');
+    this.service = null;
     this.navigationBar = document.createElement('div');
     this.contentContainer = document.createElement('div');
 
@@ -11,7 +14,6 @@ export class ViewController {
     this.mainContainer.appendChild(this.navigationBar);
     this.mainContainer.appendChild(this.contentContainer);
 
-    this.mainContainer.className = 'mainContainer';
     this.navigationBar.className = 'navigationBar';
     this.contentContainer.className = 'contentContainer';
     

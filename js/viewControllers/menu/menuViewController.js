@@ -46,7 +46,16 @@ export class MenuViewController extends ViewController{
 
   onPlayBtn(){
 
-    this.appManager.showGame();
+    var username = this.userNameIn.value;
+
+    if (username !== '') {
+      
+      this.appManager.setUsername(username);
+
+      this.appManager.showGame();
+
+    }
+
   }
 
   onScoresBtn(){

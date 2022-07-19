@@ -5,7 +5,7 @@ window.onload = init();
 
 function init(){
 
-  var appManager = new AppManager()
+  new AppManager()
 
 
 };

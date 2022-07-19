@@ -1,0 +1,10 @@
+@import url(./cardView/cardView.css);
+
+.view{
+
+}
+.mainContainer{
+  position: absolute;
+  height: 100vh;
+  margin: 0 auto;
+}

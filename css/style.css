@@ -1,14 +1,20 @@
 @import url(./variables.css);
+@import url(../js/views/views.css);
 @import url(../js/viewControllers/viewController.css);
+/* 
+*{
+  border: 1px solid black;
+} */
 
 html{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .appContainer{
-  width: 100vw;
+  margin: 0 auto;
+  max-width: 900px;
   height: 100vh;
-  background-color: bisque;
+  background-color: var(--background-color);
 }
 
 button{
