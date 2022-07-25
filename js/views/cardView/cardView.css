@@ -15,3 +15,8 @@
 .cardView_disabled{
   pointer-events: none;
 }
+.cardView_discovered{
+  pointer-events: none;
+  border: 5px solid #D4AF37;
+}
+/* #D4AF37 */

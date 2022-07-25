@@ -10,12 +10,16 @@ export class CardView extends View {
     this.mainContainer.className = 'cardView_mainContainer';
     this.defaultIcon = '❓'
     this.mainContainer.innerHTML = this.defaultIcon;
-    this.mainContainer.onclick = this.show.bind(this);
+    this.mainContainer.onclick = this.onSelected.bind(this);
+  }
+
+  onSelected() {
+    
+    this.appManager.onCardViewSelected(this);
   }
 
   show() {
     this.mainContainer.classList.add('cardView_disabled');
-    this.appManager.updateClicks();
     this.mainContainer.innerHTML = this.card.icon;
   }
 
@@ -26,5 +30,9 @@ export class CardView extends View {
 
   end() {
     this.mainContainer.classList.add('cardView_disabled');
+  }
+
+  discover() {
+    this.mainContainer.classList.add('cardView_discovered');
   }
 }

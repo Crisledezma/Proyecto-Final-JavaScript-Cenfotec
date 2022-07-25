@@ -6,11 +6,19 @@
   border: 1px solid black;
 } */
 
+*{
+  box-sizing: border-box;
+}
+
 html{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .appContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   max-width: 900px;
   height: 100vh;

@@ -16,13 +16,17 @@ export class AppManager{
     this.clicks = 0;
     this.time = 0;
     this.timer = null;
-    this.timeLimit = 30;
+    this.timeLimit = 60;
+    this.showingTimer = null;
 
     if (this.username === null) {
       this.menuViewController = new MenuViewController(this, this.appContainer);
     } else {
       this.showGame();
     };
+
+    this.cardView1 = null;
+    this.cardView2 = null;
   }
   
   showScores(){
@@ -33,6 +37,7 @@ export class AppManager{
   showGame(){
     
     this.gameViewController = new GameViewController(this, this.appContainer);
+    //this.menuViewController = null;
     this.timer = window.setInterval(this.updateTime.bind(this),1000)
   }
 
@@ -52,9 +57,37 @@ export class AppManager{
     return window.localStorage.getItem('username');
   }
 
-  updateClicks() {
+  onCardViewSelected(cardView) {
+
+    if (this.cardView1 != null && this.cardView2 != null) return;
+
     this.clicks += 1;
     this.gameViewController.updateClicks();
+    if (this.cardView1 === null) {
+      this.cardView1 = cardView;
+      this.cardView1.show();
+    } else if (this.cardView2 === null) {
+      this.cardView2 = cardView;
+      this.cardView2.show();
+      this.showingTimer = window.setTimeout(this.resetSelectedCardViews.bind(this), 1000);
+    }
+  }
+
+  resetSelectedCardViews() {
+    window.clearTimeout(this.showingTimer);
+    this.showingTimer = null;
+
+    if (this.cardView1.card.id === this.cardView2.card.id) {
+      this.cardView1.discover();
+      this.cardView2.discover();
+      this.cardView1 = null;
+      this.cardView2 = null;
+    } else {
+      this.cardView1.hide();
+      this.cardView2.hide();
+      this.cardView1 = null;
+      this.cardView2 = null;
+    }
   }
 
   updateTime() {
