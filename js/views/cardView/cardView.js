@@ -33,6 +33,7 @@ export class CardView extends View {
   }
 
   discover() {
+    this.card.isDiscovered = true;
     this.mainContainer.classList.add('cardView_discovered');
   }
 }

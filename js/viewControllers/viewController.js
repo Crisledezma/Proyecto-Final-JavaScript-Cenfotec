@@ -30,8 +30,7 @@ export class ViewController extends View {
   }
 
   remove(){
-
     this.appManager.removeViewController(this);
-  
   }
+  
 }

@@ -1,3 +1,4 @@
+import { GameViewController } from "../game/gameViewController.js";
 import { ViewController } from "../viewController.js";
 
 export class MenuViewController extends ViewController{
@@ -50,8 +51,8 @@ export class MenuViewController extends ViewController{
 
     if (username !== '') {
       
+      this.appManager.removeViewController(this);
       this.appManager.setUsername(username);
-
       this.appManager.showGame();
 
     }
@@ -59,7 +60,8 @@ export class MenuViewController extends ViewController{
   }
 
   onScoresBtn(){
-
     this.appManager.showScores();
   }
+
+  
 }

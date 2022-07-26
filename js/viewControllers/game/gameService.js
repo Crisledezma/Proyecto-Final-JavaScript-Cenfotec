@@ -22,7 +22,7 @@ export class GameService {
       if (request.status === 200) {
         var cardsData = JSON.parse(request.response);
         cardsData.cards.forEach(cardData => {
-          var card = new Card(cardData.id, cardData.icon);
+          var card = new Card(cardData.id, cardData.icon, cardData.isDiscovered);
           if (cardData.icon == '🫐') {
             return;
           }
@@ -31,6 +31,24 @@ export class GameService {
       }
     }
     this.viewController.start(cards);
+  }
+
+  sendScore(score) {
+
+    var request = new XMLHttpRequest();
+    request.open('POST', 'https://us-central1-beehivebackend-23257.cloudfunctions.net/app/scores');
+    request.onload = this.sendScoreCompleted.bind(this);
+    request.send(JSON.stringify(score));
+    
+  }
+
+  sendScoreCompleted(e) {
+    var request = e.target;
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        
+      }
+    }
   }
 
 

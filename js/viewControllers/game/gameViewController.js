@@ -1,4 +1,5 @@
 import { CardView } from "../../views/cardView/cardView.js";
+import { MenuViewController } from "../menu/menuViewController.js";
 import { ViewController } from "../viewController.js";
 import { GameService } from "./gameService.js";
 
@@ -44,7 +45,7 @@ export class GameViewController extends ViewController{
     
     this.service.getCards();
     
-    
+    this.backBtn.onclick = this.onback.bind(this);
   }
   
   start(cards) {
@@ -62,13 +63,22 @@ export class GameViewController extends ViewController{
       cardView.end();
     })
   }
+
+  isGameCompleted() {
+    for (let i = 0; i < this.cardViews.length; i++) {
+      const card = this.cardViews[i].card;
+      if (!card.isDiscovered) {
+        return false;
+      }
+    }
+    return true;
+  }
   
   updateClicks() {
     this.clicksLbl.innerHTML = `Clicks: ${this.appManager.clicks}`;
   }
   
   updateTime() {
-    
     this.timerLbl.innerHTML = `Time: ${this.appManager.time}`;
   }
   
@@ -85,6 +95,19 @@ export class GameViewController extends ViewController{
     
   }
 
+  sendScore(score) {
+    this.service.sendScore(score);
+  }
+  
+  remove() {
+    this.appManager.removeViewController(this);
+    this.appManager.timer = null;
+  }
+
+  onback() {
+    this.remove(this);
+    this.appManager.newMenu();
+  }
 }
 
 //https://us-central1-beehivebackend-23257.cloudfunctions.net/app/cards/9

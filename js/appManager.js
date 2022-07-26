@@ -18,6 +18,7 @@ export class AppManager{
     this.timer = null;
     this.timeLimit = 60;
     this.showingTimer = null;
+    this.score = 0;
 
     if (this.username === null) {
       this.menuViewController = new MenuViewController(this, this.appContainer);
@@ -30,15 +31,14 @@ export class AppManager{
   }
   
   showScores(){
-    
     this.scoresViewController = new ScoresViewController(this, this.appContainer);
   }
   
-  showGame(){
+  showGame() {
     
     this.gameViewController = new GameViewController(this, this.appContainer);
-    //this.menuViewController = null;
-    this.timer = window.setInterval(this.updateTime.bind(this),1000)
+    this.gameViewController.reset();
+    this.reset();
   }
 
   removeViewController(viewController){
@@ -46,14 +46,11 @@ export class AppManager{
   }
 
   setUsername(username) {
-    
     this.username = username;
-
     window.localStorage.setItem('username', username);
   }
 
   getUsername() {
-
     return window.localStorage.getItem('username');
   }
 
@@ -82,6 +79,16 @@ export class AppManager{
       this.cardView2.discover();
       this.cardView1 = null;
       this.cardView2 = null;
+      if (this.gameViewController.isGameCompleted()) {
+        console.log('GAME COMPLETED');
+        this.cleanGameTimer();
+        this.gameViewController.sendScore({
+          "username": this.username,
+          "clicks": this.clicks,
+          "time": this.time,
+          "score": ((100 - this.time) - (this.clicks)) * 10
+        });
+      }
     } else {
       this.cardView1.hide();
       this.cardView2.hide();
@@ -103,9 +110,19 @@ export class AppManager{
   reset() {
     this.clicks = 0;
     this.time = 0;
-    window.clearInterval(this.timer);
+    this.cleanGameTimer();
     this.timer = window.setInterval(this.updateTime.bind(this), 1000);
     this.gameViewController.updateTime();
     this.gameViewController.updateClicks();
+  }
+  
+  cleanGameTimer() {
+    window.clearInterval(this.timer);
+    this.timer = null;
+  }
+
+  newMenu() {
+    window.clearInterval(this.timer);
+    this.menuViewController = new MenuViewController(this, this.appContainer);
   }
 }
