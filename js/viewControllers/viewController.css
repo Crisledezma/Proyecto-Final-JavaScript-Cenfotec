@@ -13,6 +13,7 @@
 }
 
 .navigationBar{
+  align-self: flex-start;
   background-color: var(--secondary-color);
   width: 100%;
   max-width: 900px;

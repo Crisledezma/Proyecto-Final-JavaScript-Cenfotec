@@ -1,4 +1,3 @@
-import { GameViewController } from "../game/gameViewController.js";
 import { ViewController } from "../viewController.js";
 
 export class MenuViewController extends ViewController{
@@ -12,7 +11,7 @@ export class MenuViewController extends ViewController{
     this.backBtn.hidden = true;
     this.title.style.margin = 'auto';
 
-    this.contentContainer.classList.add('menuViewControllerr_contentContainer');
+    this.contentContainer.classList.add('menuViewController_contentContainer');
 
     var textH1 = document.createElement('h1');
     textH1.innerHTML = 'Card Memory Game'
@@ -59,7 +58,8 @@ export class MenuViewController extends ViewController{
 
   }
 
-  onScoresBtn(){
+  onScoresBtn() {
+    this.appManager.removeViewController(this);
     this.appManager.showScores();
   }
 

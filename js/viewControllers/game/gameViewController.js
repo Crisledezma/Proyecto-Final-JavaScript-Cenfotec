@@ -1,5 +1,4 @@
 import { CardView } from "../../views/cardView/cardView.js";
-import { MenuViewController } from "../menu/menuViewController.js";
 import { ViewController } from "../viewController.js";
 import { GameService } from "./gameService.js";
 

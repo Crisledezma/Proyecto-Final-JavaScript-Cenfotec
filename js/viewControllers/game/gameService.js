@@ -9,7 +9,7 @@ export class GameService {
   getCards() {
     
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://us-central1-beehivebackend-23257.cloudfunctions.net/app/cards/9');
+    request.open('GET', 'https://us-central1-beehivebackend-23257.cloudfunctions.net/app/cards/8');
     request.onload = this.getCardsCompleted.bind(this);
     request.send();
 

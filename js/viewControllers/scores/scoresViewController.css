@@ -1,3 +1,28 @@
 .scoresViewController{
+  width: 90%;
+  max-width: 810px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  font-weight: bold;
+
+}
+.scoresViewController_contentContainer{
   
+
+}
+.scoresViewController_scoresTable{
+  margin: auto;
+  border-collapse: collapse;  
+}
+.scoresViewController_scoresTable th{
+  background-color: var(--primary-color);
+  padding: 1rem 1.5rem;
+  color: white;
+}
+.scoresViewController_scoresTable td{
+  padding: 1rem 1.5rem;
+  border: 1px solid black;
 }

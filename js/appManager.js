@@ -123,6 +123,7 @@ export class AppManager{
 
   newMenu() {
     window.clearInterval(this.timer);
+    console.log('creando menuViewController');
     this.menuViewController = new MenuViewController(this, this.appContainer);
   }
 }
