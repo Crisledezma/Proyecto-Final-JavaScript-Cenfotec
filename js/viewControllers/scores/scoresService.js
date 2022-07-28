@@ -1,8 +1,6 @@
-import { Card } from "../../models/card.js";
 
 export class ScoresService {
   constructor(viewController) {
-    
     this.viewController = viewController;
   }
 
@@ -20,19 +18,7 @@ export class ScoresService {
     var request = e.target;
     if (request.readyState === 4) {
       if (request.status === 200) {
-        //console.log('ScoresService', request.responseText);
-        this.viewController.start(JSON.parse(request.response));
-    //     var cardsData = JSON.parse(request.response);
-    //     cardsData.cards.forEach(cardData => {
-    //       var card = new Card(cardData.id, cardData.icon, cardData.isDiscovered);
-    //       if (cardData.icon == '🫐') {
-    //         return;
-    //       }
-    //       cards.push(card);
-    //     })
-    //   }
-    // }
-    // this.viewController.start(cards);
+        this.viewController.start(JSON.parse(request.responseText));
       }
     }
   }

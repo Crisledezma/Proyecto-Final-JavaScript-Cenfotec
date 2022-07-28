@@ -41,7 +41,10 @@ export class AppManager{
     this.reset();
   }
 
-  removeViewController(viewController){
+  removeViewController(viewController) {
+    this.clicks = 0;
+    this.time = 0;
+    this.cleanGameTimer();
     this.appContainer.removeChild(viewController.mainContainer);
   }
 
@@ -86,7 +89,7 @@ export class AppManager{
           "username": this.username,
           "clicks": this.clicks,
           "time": this.time,
-          "score": ((100 - this.time) - (this.clicks)) * 10
+          "score": (((100 - this.time) - (this.clicks)) * 10)
         });
       }
     } else {
@@ -107,6 +110,11 @@ export class AppManager{
     }
   }
 
+  cleanGameTimer() {
+    window.clearInterval(this.timer);
+    this.timer = null;
+  }
+
   reset() {
     this.clicks = 0;
     this.time = 0;
@@ -115,15 +123,9 @@ export class AppManager{
     this.gameViewController.updateTime();
     this.gameViewController.updateClicks();
   }
-  
-  cleanGameTimer() {
-    window.clearInterval(this.timer);
-    this.timer = null;
-  }
 
   newMenu() {
     window.clearInterval(this.timer);
-    console.log('creando menuViewController');
     this.menuViewController = new MenuViewController(this, this.appContainer);
   }
 }

@@ -34,12 +34,10 @@ export class GameService {
   }
 
   sendScore(score) {
-
     var request = new XMLHttpRequest();
     request.open('POST', 'https://us-central1-beehivebackend-23257.cloudfunctions.net/app/scores');
     request.onload = this.sendScoreCompleted.bind(this);
     request.send(JSON.stringify(score));
-    
   }
 
   sendScoreCompleted(e) {

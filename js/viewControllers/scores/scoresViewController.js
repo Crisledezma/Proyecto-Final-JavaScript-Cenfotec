@@ -10,7 +10,6 @@ export class ScoresViewController extends ViewController{
     this.service = new ScoresService(this);
     this.mainContainer.classList.add('scoresViewController');
     this.mainContainer.classList.add('mainContainer');
-    //this.appManager = appManager;
 
     this.service.getScores();
 
@@ -45,7 +44,6 @@ export class ScoresViewController extends ViewController{
   }
   
   start(scores) {
-    console.log(scores);
     scores.forEach(score => {
       var dataRow = document.createElement('tr');
       this.scoreTbl.appendChild(dataRow);
@@ -65,8 +63,6 @@ export class ScoresViewController extends ViewController{
       var tdScore = document.createElement('td');
       tdScore.innerHTML = score.score;
       dataRow.appendChild(tdScore);
-    //   var cardView = new CardView(this.cardsContainer, card, this.appManager);
-    //   this.cardViews.push(cardView);
     })
     
   }
