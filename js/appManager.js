@@ -95,7 +95,7 @@ export class AppManager{
           "username": this.username,
           "clicks": this.clicks,
           "time": this.time,
-          "score": (((100 - this.time) - (this.clicks)) * 10)
+          "score": ((70 - this.time) - (this.clicks))
         });
       }
     } else {
