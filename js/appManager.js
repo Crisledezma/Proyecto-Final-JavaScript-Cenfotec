@@ -28,6 +28,10 @@ export class AppManager{
 
     this.cardView1 = null;
     this.cardView2 = null;
+
+    this.tadaSound = new Audio('../../assets/sound/tada.mp3');
+    this.loseSound = new Audio('../../assets/sound/lose.mp3');
+    this.winSound = new Audio('../../assets/sound/win.mp3');
   }
   
   showScores(){
@@ -80,10 +84,12 @@ export class AppManager{
     if (this.cardView1.card.id === this.cardView2.card.id) {
       this.cardView1.discover();
       this.cardView2.discover();
+      this.tadaSound.play();
       this.cardView1 = null;
       this.cardView2 = null;
       if (this.gameViewController.isGameCompleted()) {
         console.log('GAME COMPLETED');
+        this.winSound.play();
         this.cleanGameTimer();
         this.gameViewController.sendScore({
           "username": this.username,
@@ -107,6 +113,7 @@ export class AppManager{
     } else {
       window.clearInterval(this.timer);
       this.gameViewController.end();
+      this.loseSound.play();
     }
   }
 

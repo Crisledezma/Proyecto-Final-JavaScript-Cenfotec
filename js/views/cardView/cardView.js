@@ -11,11 +11,12 @@ export class CardView extends View {
     this.defaultIcon = '❓'
     this.mainContainer.innerHTML = this.defaultIcon;
     this.mainContainer.onclick = this.onSelected.bind(this);
+    this.click = new Audio('../../assets/sound/click.mp3');
   }
 
   onSelected() {
-    
     this.appManager.onCardViewSelected(this);
+    this.click.play();
   }
 
   show() {
