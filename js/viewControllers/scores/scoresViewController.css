@@ -18,13 +18,15 @@
   border-collapse: collapse;  
 }
 .scoresViewController_scoresTable th{
+  width: 24%;
   background-color: var(--primary-color);
-  padding: 1rem 1.5rem;
+  padding: 1rem 0.5rem;
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
 }
 .scoresViewController_scoresTable td{
+  max-width: 24vw;
   padding: 1rem 1.5rem;
   border: 1px solid black;
   text-align: center;
