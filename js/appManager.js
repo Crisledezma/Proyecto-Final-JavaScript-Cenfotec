@@ -88,7 +88,6 @@ export class AppManager{
       this.cardView1 = null;
       this.cardView2 = null;
       if (this.gameViewController.isGameCompleted()) {
-        console.log('GAME COMPLETED');
         this.winSound.play();
         this.cleanGameTimer();
         this.gameViewController.sendScore({
