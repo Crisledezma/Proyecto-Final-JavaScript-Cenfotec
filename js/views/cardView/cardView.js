@@ -11,7 +11,7 @@ export class CardView extends View {
     this.defaultIcon = '❓'
     this.mainContainer.innerHTML = this.defaultIcon;
     this.mainContainer.onclick = this.onSelected.bind(this);
-    this.click = new Audio('../../assets/sound/click.mp3');
+    this.click = new Audio('https://github.com/Crisledezma/Proyecto-Final-JavaScript-Cenfotec/raw/main/assets/sound/click.mp3');
   }
 
   onSelected() {
