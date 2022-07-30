@@ -40,9 +40,6 @@ export class ScoresViewController extends ViewController{
     this.th.innerHTML = 'Score';
     this.tr.appendChild(this.th);
 
-    this.audioLoop = new Audio('../../assets/sound/background.mp3');
-    this.audioLoop.loop = true;
-    // this.audioLoop.play();
   }
   
   start(scores) {
