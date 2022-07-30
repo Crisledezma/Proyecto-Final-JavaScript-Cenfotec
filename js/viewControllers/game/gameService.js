@@ -44,7 +44,7 @@ export class GameService {
     var request = e.target;
     if (request.readyState === 4) {
       if (request.status === 200) {
-        
+        console.log(request);
       }
     }
   }
