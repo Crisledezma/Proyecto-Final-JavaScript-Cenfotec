@@ -77,7 +77,6 @@ export class ScoresViewController extends ViewController{
   onback() {
     this.remove(this);
     this.appManager.newMenu();
-    // this.audioLoop.remove();
   }
 
 }
