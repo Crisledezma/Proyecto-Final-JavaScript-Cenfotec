@@ -29,9 +29,9 @@ export class AppManager{
     this.cardView1 = null;
     this.cardView2 = null;
 
-    this.tadaSound = new Audio('../assets/sound/tada.mp3');
-    this.loseSound = new Audio('../assets/sound/lose.mp3');
-    this.winSound = new Audio('../assets/sound/win.mp3');
+    this.tadaSound = new Audio('https://github.com/Crisledezma/Proyecto-Final-JavaScript-Cenfotec/blob/main/assets/sound/tada.mp3');
+    this.loseSound = new Audio('https://github.com/Crisledezma/Proyecto-Final-JavaScript-Cenfotec/blob/main/assets/sound/lose.mp3');
+    this.winSound = new Audio('https://github.com/Crisledezma/Proyecto-Final-JavaScript-Cenfotec/blob/main/assets/sound/win.mp3');
   }
   
   showScores(){
