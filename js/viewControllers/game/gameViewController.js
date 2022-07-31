@@ -11,7 +11,6 @@ export class GameViewController extends ViewController{
     this.type = 'gameViewController';
 
     this.mainContainer.className = 'gameViewController_mainContainer';
-    //this.mainContainer.classList.add('mainContainer');
 
     this.service = new GameService(this);
 
@@ -47,6 +46,8 @@ export class GameViewController extends ViewController{
     this.service.getCards();
     
     this.backBtn.onclick = this.onback.bind(this);
+
+    this.contentContainer.style.transform = `translateX(${window.innerWidth}px)`;
   }
   
   start(cards) {
@@ -56,6 +57,8 @@ export class GameViewController extends ViewController{
       var cardView = new CardView(this.cardsContainer, card, this.appManager);
       this.cardViews.push(cardView);
     })
+
+    this.show();
     
   }
   
@@ -89,11 +92,11 @@ export class GameViewController extends ViewController{
   }
 
   show(){
-
+    super.show();
   }
 
   hide(){
-    
+    super.hide();
   }
 
   sendScore(score) {
@@ -104,10 +107,13 @@ export class GameViewController extends ViewController{
     this.appManager.removeViewController(this);
     this.appManager.timer = null;
   }
-
+  
   onback() {
-    this.remove(this);
+    this.hide();
     this.appManager.newMenu();
+    window.setTimeout(() => {
+      super.remove(this);
+    }, 600)
   }
 }
 

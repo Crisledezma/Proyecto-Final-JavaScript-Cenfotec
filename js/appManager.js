@@ -43,7 +43,6 @@ export class AppManager{
   }
   
   showGame() {
-    
     this.gameViewController = new GameViewController(this, this.appContainer);
     this.timer = window.setInterval(this.updateTime.bind(this), 1000);
   }
@@ -137,7 +136,7 @@ export class AppManager{
     this.timer = null;
   }
 
-  reset(isCreatingTimer) {
+  reset(isCreatingTimer = true) {
     this.clicks = 0;
     this.time = 0;
     this.cleanGameTimer();

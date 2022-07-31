@@ -63,9 +63,12 @@ export class MenuViewController extends ViewController{
 
     if (username !== '') {
       
-      this.appManager.removeViewController(this);
+      this.menuOut();
       this.appManager.setUsername(username);
-      this.appManager.showGame();
+      window.setTimeout(() => {
+        this.appManager.removeViewController(this);
+        this.appManager.showGame();
+      }, 500);
 
     }
 

@@ -46,7 +46,7 @@ export class ScoresViewController extends ViewController{
   }
   
   start(scores) {
-    for (let i = 12; i < 23; i++) {
+    for (let i = 19; i < 30; i++) {
       const score = scores[i];
       
         var dataRow = document.createElement('tr');
@@ -72,10 +72,6 @@ export class ScoresViewController extends ViewController{
     this.show();
     
   }
-
-  // moveIn() {
-    
-  // }
 
   moveOut() {
     
