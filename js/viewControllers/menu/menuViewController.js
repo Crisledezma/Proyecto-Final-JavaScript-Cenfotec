@@ -42,6 +42,19 @@ export class MenuViewController extends ViewController{
 
     scoresBtn.onclick = this.onScoresBtn.bind(this);
 
+    this.contentContainer.style.transform = `translateX(-${window.innerWidth}px)`;
+
+    this.menuIn();
+  }
+
+  menuIn() {
+    const options = { x: '0px', duration: 0.5 };
+    gsap.to(this.contentContainer, options);
+  }
+
+  menuOut() {
+    const options = { x: `-${window.innerWidth}px`, duration: 0.5 };
+    gsap.to(this.contentContainer, options);
   }
 
   onPlayBtn(){
@@ -59,8 +72,11 @@ export class MenuViewController extends ViewController{
   }
 
   onScoresBtn() {
-    this.appManager.removeViewController(this);
+    this.menuOut();
     this.appManager.showScores();
+    window.setTimeout(() => {
+      this.appManager.removeViewController(this);
+    }, 500);
   }
 
   

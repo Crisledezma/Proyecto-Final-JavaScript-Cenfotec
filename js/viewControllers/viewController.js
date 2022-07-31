@@ -29,6 +29,16 @@ export class ViewController extends View {
     this.backBtn.onclick = this.remove.bind(this);
   }
 
+  show() {
+    const options = { x: '0px', duration: 0.5 };
+    gsap.to(this.contentContainer, options);
+  }
+
+  hide() {
+    const options = { x: `${window.innerWidth}px`, duration: 0.6 };
+    gsap.to(this.contentContainer, options);
+  }
+
   remove(){
     this.appManager.removeViewController(this);
   }

@@ -21,7 +21,7 @@ export class AppManager{
     this.score = 0;
 
     if (this.username === null) {
-      this.menuViewController = new MenuViewController(this, this.appContainer);
+      this.newMenu();
     } else {
       this.showGame();
     };
@@ -33,6 +33,10 @@ export class AppManager{
     this.loseSound = new Audio('https://github.com/Crisledezma/Proyecto-Final-JavaScript-Cenfotec/raw/main/assets/sound/lose.mp3');
     this.winSound = new Audio('https://github.com/Crisledezma/Proyecto-Final-JavaScript-Cenfotec/raw/main/assets/sound/win.mp3');
   }
+
+  showMenu() {
+    this.newMenu();
+  }
   
   showScores(){
     this.scoresViewController = new ScoresViewController(this, this.appContainer);
@@ -41,15 +45,27 @@ export class AppManager{
   showGame() {
     
     this.gameViewController = new GameViewController(this, this.appContainer);
-    this.gameViewController.reset();
-    this.reset();
+    this.timer = window.setInterval(this.updateTime.bind(this), 1000);
   }
 
   removeViewController(viewController) {
+    this.reset(false);
+    
+    this.appContainer.removeChild(viewController.mainContainer);
+
+    switch (viewController.type) {
+      case 'gameViewController':
+        this.gameViewController = null;
+        break;
+      case 'scoresViewController':
+        this.scoresViewController = null;
+        break;
+      default:
+        break;
+    }
     this.clicks = 0;
     this.time = 0;
     this.cleanGameTimer();
-    this.appContainer.removeChild(viewController.mainContainer);
   }
 
   setUsername(username) {
@@ -121,13 +137,19 @@ export class AppManager{
     this.timer = null;
   }
 
-  reset() {
+  reset(isCreatingTimer) {
     this.clicks = 0;
     this.time = 0;
     this.cleanGameTimer();
-    this.timer = window.setInterval(this.updateTime.bind(this), 1000);
-    this.gameViewController.updateTime();
-    this.gameViewController.updateClicks();
+
+    if (isCreatingTimer) {
+      this.timer = window.setInterval(this.updateTime.bind(this), 1000);
+    }
+
+    if (this.gameViewController !== null) {
+      this.gameViewController.updateClicks();
+      this.gameViewController.updateTime();
+    }
   }
 
   newMenu() {

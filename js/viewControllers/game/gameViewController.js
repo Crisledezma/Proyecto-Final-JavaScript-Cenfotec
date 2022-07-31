@@ -8,6 +8,8 @@ export class GameViewController extends ViewController{
 
     super(appManager, parent, 'Game');
 
+    this.type = 'gameViewController';
+
     this.mainContainer.className = 'gameViewController_mainContainer';
     //this.mainContainer.classList.add('mainContainer');
 
